@@ -1,0 +1,24 @@
+{
+    "name": "RTS_FPS_V2.PlayModeNetworkingTests",
+    "rootNamespace": "RTS_FPS_V2.Tests.PlayMode.Networking",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "RTS_FPS_V2.Networking.Abstractions",
+        "RTS_FPS_V2.Networking.Ngo",
+        "Unity.Netcode.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

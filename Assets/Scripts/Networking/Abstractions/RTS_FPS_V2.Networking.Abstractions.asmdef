@@ -1,0 +1,14 @@
+{
+    "name": "RTS_FPS_V2.Networking.Abstractions",
+    "rootNamespace": "RTS_FPS_V2.Networking",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

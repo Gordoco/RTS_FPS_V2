@@ -1,0 +1,20 @@
+{
+    "name": "RTS_FPS_V2.Networking.Ngo.Editor",
+    "rootNamespace": "RTS_FPS_V2.Networking.Ngo.Editor",
+    "references": [
+        "RTS_FPS_V2.Networking.Ngo",
+        "RTS_FPS_V2.Networking.Abstractions",
+        "Unity.Netcode.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

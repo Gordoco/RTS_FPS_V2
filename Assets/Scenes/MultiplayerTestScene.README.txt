@@ -1,0 +1,38 @@
+Multiplayer Test Scene (Multiplayer Play Mode)
+==============================================
+
+Uses Unity Multiplayer Play Mode (MPPM) to simulate host + clients in ONE editor — no second Unity instance.
+
+Setup (once)
+------------
+1. Run menu: RTS FPS V2 > Setup Networking Assets
+2. Confirm package com.unity.multiplayer.playmode is installed (added to manifest)
+
+Before Play Mode
+----------------
+1. Open Assets/Scenes/MultiplayerTestScene.unity
+2. In the Play Mode toolbar (next to the Play button), open the scenario / players dropdown
+3. Enable at least one Virtual Player (e.g. Main Editor + Player 2 = host + one client)
+   - Or: Window > Multiplayer > Play Mode Scenarios (Unity 6.4)
+
+Enter Play Mode
+---------------
+With MultiplayerPlayModeAutoConnect on the NetworkBootstrap prefab:
+- Main Editor player: auto-starts as Host
+- Virtual Player(s): auto-join localhost after a short delay
+
+Manual controls (MultiplayerTestUI) still work if you disable auto-connect on the prefab.
+
+Verify replication
+------------------
+1. Press Play (all enabled players start together)
+2. On the host view: Spawn Character / Spawn Unit
+3. Virtual player windows should show the same entities
+
+Tips
+----
+- Default port: 7777 (Assets/Networking/Config/DefaultSessionConfig.asset)
+- Add test scenes to File > Build Profiles / Scenes in Build if MPPM reports missing scenes
+- Toggle autoStartHostOnMainPlayer on MultiplayerPlayModeAutoConnect to use Host/Join buttons only
+
+More: https://docs.unity3d.com/6000.4/Documentation/Manual/com.unity.multiplayer.playmode.html
