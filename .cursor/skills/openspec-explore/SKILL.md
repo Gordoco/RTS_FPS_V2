@@ -251,7 +251,7 @@ You: That changes everything.
 
 There's no required ending. Discovery might:
 
-- **Flow into a proposal**: "Ready to start? I can create a change proposal."
+- **Flow into a proposal**: "Ready to start? Run `/opsx:propose` — that creates branch `openspec/<name>`, artifacts, and the first commit."
 - **Result in artifact updates**: "Updated design.md with these decisions"
 - **Just provide clarity**: User has what they need, moves on
 - **Continue later**: "We can pick this up anytime"

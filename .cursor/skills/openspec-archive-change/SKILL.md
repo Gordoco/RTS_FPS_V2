@@ -82,12 +82,20 @@ Archive a completed change in the experimental workflow.
    mv openspec/changes/<name> openspec/changes/archive/YYYY-MM-DD-<name>
    ```
 
-6. **Display summary**
+6. **Commit and push archive**
+
+   Follow `.cursor/reference/openspec-git-workflow.md` (**Workflow commits** → Archive, then push).
+
+   - If a PR is already open for `openspec/<name>`, push so the PR includes the archive commit.
+   - Do not open a new PR unless the user asks and no PR exists yet.
+
+7. **Display summary**
 
    Show archive completion summary including:
    - Change name
    - Schema that was used
    - Archive location
+   - Git branch and whether changes were pushed
    - Whether specs were synced (if applicable)
    - Note about any warnings (incomplete artifacts/tasks)
 
@@ -105,6 +113,7 @@ All artifacts complete. All tasks complete.
 ```
 
 **Guardrails**
+- Commit and push the archive (and spec sync) on the feature branch when git is available
 - Always prompt for change selection if not provided
 - Use artifact graph (openspec status --json) for completion checking
 - Don't block archive on warnings - just inform and confirm

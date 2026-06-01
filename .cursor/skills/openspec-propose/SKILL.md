@@ -1,6 +1,6 @@
 ---
 name: openspec-propose
-description: Propose a new change with all artifacts generated in one step. Use when the user wants to quickly describe what they want to build and get a complete proposal with design, specs, and tasks ready for implementation.
+description: Propose a new change with all artifacts generated in one step. Creates git branch openspec/<name>, commits proposal artifacts, and prepares for apply/PR workflow. Use when the user wants to quickly describe what they want to build and get a complete proposal with design, specs, and tasks ready for implementation.
 license: MIT
 compatibility: Requires openspec CLI.
 metadata:
@@ -16,7 +16,7 @@ I'll create a change with artifacts:
 - design.md (how)
 - tasks.md (implementation steps)
 
-When ready to implement, run /opsx:apply
+Creates branch `openspec/<name>` and commits artifacts. When ready to implement, run /opsx:apply (opens a PR when all tasks are done).
 
 ---
 
@@ -33,13 +33,17 @@ When ready to implement, run /opsx:apply
 
    **IMPORTANT**: Do NOT proceed without understanding what the user wants to build.
 
-2. **Create the change directory**
+2. **Create the git feature branch**
+
+   Follow `.cursor/reference/openspec-git-workflow.md` (**Create or checkout the feature branch**) using branch `openspec/<name>`.
+
+3. **Create the change directory**
    ```bash
    openspec new change "<name>"
    ```
    This creates a scaffolded change at `openspec/changes/<name>/` with `.openspec.yaml`.
 
-3. **Get the artifact build order**
+4. **Get the artifact build order**
    ```bash
    openspec status --change "<name>" --json
    ```
@@ -47,7 +51,7 @@ When ready to implement, run /opsx:apply
    - `applyRequires`: array of artifact IDs needed before implementation (e.g., `["tasks"]`)
    - `artifacts`: list of all artifacts with their status and dependencies
 
-4. **Create artifacts in sequence until apply-ready**
+5. **Create artifacts in sequence until apply-ready**
 
    Use the **TodoWrite tool** to track progress through the artifacts.
 
@@ -79,7 +83,11 @@ When ready to implement, run /opsx:apply
       - Use **AskUserQuestion tool** to clarify
       - Then continue with creation
 
-5. **Show final status**
+6. **Commit proposal artifacts**
+
+   Follow `.cursor/reference/openspec-git-workflow.md` (**Workflow commits** → Propose). Commit OpenSpec artifacts for this change.
+
+7. **Show final status**
    ```bash
    openspec status --change "<name>"
    ```
@@ -87,10 +95,11 @@ When ready to implement, run /opsx:apply
 **Output**
 
 After completing all artifacts, summarize:
+- Git branch: `openspec/<name>` (and commit hash if committed)
 - Change name and location
 - List of artifacts created with brief descriptions
 - What's ready: "All artifacts created! Ready for implementation."
-- Prompt: "Run `/opsx:apply` or ask me to implement to start working on the tasks."
+- Prompt: "Run `/opsx:apply` or ask me to implement; a pull request is opened when all tasks are done."
 
 **Artifact Creation Guidelines**
 
@@ -103,6 +112,8 @@ After completing all artifacts, summarize:
   - These guide what you write, but should never appear in the output
 
 **Guardrails**
+- Create the feature branch before scaffolding the change (when git is available)
+- Commit proposal artifacts before finishing (when git is available)
 - Create ALL artifacts needed for implementation (as defined by schema's `apply.requires`)
 - Always read dependency artifacts before creating a new one
 - If context is critically unclear, ask the user - but prefer making reasonable decisions to keep momentum
